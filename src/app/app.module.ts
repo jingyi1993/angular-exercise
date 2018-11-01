@@ -5,25 +5,32 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 
-import { WarningAlertComponent } from './warning-alert/warning-alert.component';
+
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import {ServersComponent} from './servers/servers.component';
 import {ServerComponent} from './server/server.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import {AuthService} from './auth/auth.service';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WarningAlertComponent,
     SuccessAlertComponent,
     ServerComponent,
-    ServersComponent
+    ServersComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

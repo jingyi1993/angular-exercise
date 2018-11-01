@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
   h3{color: pink}
   `]
 })
-export class AppComponent {
-  name = 'maggie';
+export class AppComponent implements OnInit {
+
+  ngOnInit () {
+    firebase.initializeApp({
+      apiKey:  "AIzaSyAZ_djBEUVQAFzDBPsECqF9saGJpXwx0jU",
+      authDomain:  "angular-signin-3fd3d.firebaseapp.com",
+    });
+
+  }
+
+
 }
