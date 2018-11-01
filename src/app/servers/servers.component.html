@@ -1,0 +1,19 @@
+
+
+
+
+
+<input type="text" class="form-control" [(ngModel)]="username" >
+<hr>
+<button class="btn btn-primary"  (click)="onCreateUesername()" >Add server</button>
+<hr>
+
+<p *ngIf="usernameCreated; else noServer">Server was created, server name is {{username}} </p>
+
+<hr>
+<ng-template #noServer>
+  <p > no server was created!</p>
+</ng-template>
+
+<p>{{usernameCreated}}</p>
+<!--<app-server>{{serverCreationStatus}}</app-server>-->
