@@ -1,3 +1,108 @@
-<p>
-  signin works!
-</p>
+
+
+
+<div class="row rounded border border-primary" >
+  <div class="col-xs-12 col-sm-10 clo-md-8 col-sm-offset-1 col-md-offset-2" >
+    <form (ngSubmit)="onSignin(f)"  #f="ngForm">
+      <label for="email"> Mail </label>
+      <div class="input-group">
+
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text"
+               id="email"
+               name="email"
+               placeholder="email"
+               ngModel
+               class="form-control"
+               onmouseover="this.style.borderColor='#FF6600'"
+               onmouseout="this.style.borderColor=''"
+               email
+               required
+               #email="ngModel"
+               >
+      </div>
+
+      <div class="new" >
+           <span class="help-block text-danger text-center" *ngIf="!email.valid && email.dirty" >
+          <i class="glyphicon glyphicon-remove"></i>
+          please type in a valid email
+        </span>
+        <span class="help-block text-success text-center" *ngIf="email.valid && email.dirty" >
+          <i class="glyphicon glyphicon-ok"></i>
+          We will email you to confirm
+        </span>
+      </div>
+
+
+
+      <label for="password"> Password</label>
+      <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+        <input type="password"
+               id="password"
+               name="password"
+               ngModel
+               class="form-control"
+               placeholder="password"
+               onmouseover="this.style.borderColor='#FF6600'"
+               onmouseout="this.style.borderColor=''"
+               minlength="6"
+               required
+               #password="ngModel"
+               >
+      </div>
+      <div class="new">
+          <span class="help-block text-danger text-center" *ngIf="!password.valid && password.dirty">
+           <i class="glyphicon glyphicon-remove"></i>
+          please enter password of minlength 6
+        </span>
+        <span class="help-block text-success text-center" *ngIf="password.valid && password.dirty" >
+          <i class="glyphicon glyphicon-ok"></i>
+          the password is okk
+        </span>
+      </div>
+
+
+      <!--<label for="password"> Confirm Password</label>-->
+      <!--<div class="input-group">-->
+        <!--<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
+        <!--<input type="password"-->
+               <!--id="repassword"-->
+               <!--name="repassword"-->
+               <!--ngModel-->
+               <!--class="form-control"-->
+               <!--placeholder="please type in password again"-->
+               <!--onmouseover="this.style.borderColor='#FF6600'"-->
+               <!--onmouseout="this.style.borderColor=''"-->
+               <!--minlength="6"-->
+               <!--required-->
+               <!--#repassword="ngModel"-->
+               <!--pattern= password-->
+               <!--(ngModelChange)="repasswordChangeHandler(repassword)">-->
+      <!--</div>-->
+
+
+      <hr>
+
+      <button class="btn btn-primary center-block"
+              type="submit"
+              [disabled]=" !f.valid "
+              >
+        <!--<a class="nav-link" href="/"> Sign in</a>-->
+        signin
+
+
+      </button>
+    </form>
+    <div class="text-center">
+      {{message}}
+    </div>
+
+  </div>
+</div>
+
+
+
+

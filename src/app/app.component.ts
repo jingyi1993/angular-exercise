@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
   h3{color: pink}
   `]
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
   ngOnInit () {
     firebase.initializeApp({

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
 
 
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
@@ -12,7 +13,8 @@ import {ServerComponent} from './server/server.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
-
+import { HeaderComponent } from './header/header.component';
+import {DropdownDirective} from './shared/dropdown.directive';
 
 
 @NgModule({
@@ -22,11 +24,18 @@ import {AuthService} from './auth/auth.service';
     ServerComponent,
     ServersComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    HeaderComponent,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot([
+      {path: '' , component: ServersComponent},
+      {path: 'signin' , component: SigninComponent},
+      {path: 'signup' , component: SignupComponent}
+    ])
   ],
   providers: [
     AuthService
