@@ -8,7 +8,7 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-    message: '';
+    message;
 
   constructor(private authService: AuthService) { }
 
