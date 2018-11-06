@@ -10,15 +10,24 @@ export class AuthService {
   }
 
   signinUser (email: string, password: string) {
-     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(res => {
-        console.log(res);
-        return this.getToken(); }
-        )
-      .catch(err => {
-        console.log(err);
-        this.errMessage = err;
-      });
+     return firebase.auth().signInWithEmailAndPassword(email, password);
+      // .then(res => {
+      //   console.log(res);
+      //   return new Promise(
+      //     (resolve, reject) => {
+      //       resolve();
+      //     }
+      //   );
+      // }
+      //   )
+      // .catch(err => {
+      //   console.log(err);
+      //   return new Promise(
+      //     (resolve, reject) => {
+      //       resolve();
+      //     }
+      //   );
+      // });
   }
 
   getToken () {

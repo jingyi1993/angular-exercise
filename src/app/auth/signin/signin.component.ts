@@ -21,12 +21,12 @@ export class SigninComponent implements OnInit {
 
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signinUser(email, password);
-    if ( this.authService.token ) {
-      this.message = 'success';
-    } else {
-      this.message = this.authService.errMessage;
-    }
+    const current = this;
+    this.authService.signinUser(email, password).then(function() {
+      current.message = 'success';
+      }).catch(function() {
+      current.message = 'error';
+    });
   }
 
 }
