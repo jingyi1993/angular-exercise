@@ -1,9 +1,10 @@
 
 
-
-  <div class="row rounded border border-primary" >
+<div class="p-3 mb-2 bg-secondary text-white">
+  <div class="row rounded border border-primary"
+       >
     <div class="col-xs-12 col-sm-10 clo-md-8 col-sm-offset-1 col-md-offset-2" >
-      <form (ngSubmit)="onSignup(f)" #f="ngForm">
+      <form (ngSubmit)="onSignup(f)" #f="ngForm"style="margin-right: 190px">
         <label for="email"> Mail </label>
         <div class="input-group">
 
@@ -62,9 +63,9 @@
         </span>
         </div>
 
-
+       //type in confirm password
         <label for="password"> Confirm Password</label>
-        <div class="input-group">
+        <div class="input-group ">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
           <input type="password"
                  id="repassword"
@@ -81,7 +82,7 @@
                  (ngModelChange)="repasswordChangeHandler(repassword)">
         </div>
 
-        <div>
+        <div class="new">
               <!--<span class="help-block text-danger text-center" *ngIf="!repassword.valid && repassword.dirty">-->
            <!--<i class="glyphicon glyphicon-remove"></i>-->
           <!--please enter password of minlength 6-->
@@ -103,7 +104,37 @@
         </span>
         </div>
 
-        <hr>
+        //type in text
+
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <div class="input-group" >
+          <textarea class="form-control"
+                    type="text"
+                    name="textinput"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    required
+                     ngModel>
+
+          </textarea>
+        </div>
+
+        //select constellation
+
+        <div class="input-group">
+          <label> constellation </label>
+            <select class="form-control form-control-lg"
+                    ngModel
+                    name="constellation"
+                    id="option">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+        </div>
+
+
 
         <button class="btn btn-primary center-block"
                 type="submit">
@@ -115,6 +146,7 @@
       </form>
     </div>
   </div>
+</div>
 
 
 

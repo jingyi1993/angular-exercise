@@ -20,6 +20,10 @@ span {
   justify-content: center;
   align-items: center
 }
+span {
+  /*width: 35px;*/
+  /*background-color: navajowhite;*/
+}
 
 /*style="height: 30px; display: flex; justify-content: center; align-items: center"*/
 

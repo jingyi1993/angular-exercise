@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {NgModel} from '@angular/forms';
 import {AuthService} from '../auth.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   confirmInformation = '';
 
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -25,8 +26,16 @@ export class SignupComponent implements OnInit {
 
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signupUser(email, password);
+    this.authService.signupUser(email, password)
+      .then(res => {console.log(res);
+                            this.http.post('https://angular-signin-3fd3d.firebaseio.com/data.json', form.value)
+                              .subscribe(
+                                (response) => console.log(response),
+                                (error) => console.log(error)
+                              );
 
+                             })
+      .catch(err => console.log(err));
   }
   inputHandler (email: NgModel) {
     console.log(email);

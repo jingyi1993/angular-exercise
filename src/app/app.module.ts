@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
@@ -29,6 +30,7 @@ import {DropdownDirective} from './shared/dropdown.directive';
     DropdownDirective,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
