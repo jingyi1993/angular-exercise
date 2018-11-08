@@ -58,7 +58,7 @@
            <i class="glyphicon glyphicon-remove"></i>
           please enter password of minlength 6
         </span>
-        <span class="help-block text-success text-center" *ngIf="password.valid && password.dirty" >
+        <span class="help-block text-success text-center" *ngIf=" password.valid && password.dirty" >
           <i class="glyphicon glyphicon-ok"></i>
           the password is okk
         </span>
@@ -86,19 +86,34 @@
 
       <hr>
 
-      <button class="btn btn-primary center-block"
+      <button class="btn btn-primary center-block nav-link"
               type="submit"
               [disabled]=" !f.valid "
               >
+        Sign In
+        <!--<div *ngIf="message === 'success!' ; else disable "  >-->
+          <!--<a class="nav-link" routerLink="/profile">Sign In</a>-->
+        <!--</div>-->
+        <!--<div #disable> Sign In</div>-->
         <!--<a class="nav-link" href="/"> Sign in</a>-->
-        signin
 
 
       </button>
+      <hr>
     </form>
     <div class="text-center">
-      {{message}}
+      {{authService.MessageOfSignIn}}
     </div>
+
+      <div *ngIf="authService.MessageOfSignIn">
+        <a class="nav-link text-center" routerLink="/profile">
+          jump me to profile page
+        </a>
+
+      </div>
+
+
+
 
   </div>
 </div>

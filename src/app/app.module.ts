@@ -16,6 +16,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
 import {DropdownDirective} from './shared/dropdown.directive';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {DropdownDirective} from './shared/dropdown.directive';
     SigninComponent,
     HeaderComponent,
     DropdownDirective,
+    ProfileComponent,
   ],
   imports: [
     HttpClientModule,
@@ -36,7 +38,8 @@ import {DropdownDirective} from './shared/dropdown.directive';
     RouterModule.forRoot([
       {path: '' , component: ServersComponent},
       {path: 'signin' , component: SigninComponent},
-      {path: 'signup' , component: SignupComponent}
+      {path: 'signup' , component: SignupComponent},
+      {path: 'profile' , component: ProfileComponent}
     ])
   ],
   providers: [

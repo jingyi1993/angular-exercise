@@ -8,11 +8,13 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-    message;
 
-  constructor(private authService: AuthService) { }
+
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
+    // message = this.authService.MessageOfSignIn;
   }
 
   onSignin (form: NgForm ) {
@@ -21,12 +23,23 @@ export class SigninComponent implements OnInit {
 
     const email = form.value.email;
     const password = form.value.password;
-    const current = this;
-    this.authService.signinUser(email, password).then(function() {
-      current.message = 'success';
-      }).catch(function() {
-      current.message = 'error';
-    });
+    // const current = this;
+    this.authService.signinUser(email, password);
+    //   .then(function() {
+    //   current.message = 'success';
+    //   }).catch(function() {
+    //   current.message = 'error';
+    // });
+    //   .then(res => {
+    //     current.message = 'success!';
+    //     console.log(current.message);
+    //     this.authService.getToken();
+    //   }
+    //   )
+    //   .catch(err => {
+    //     current.message = 'error';
+    //     console.log(current.message);
+    //   });
   }
 
 }

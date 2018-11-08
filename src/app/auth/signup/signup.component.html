@@ -23,6 +23,9 @@
                   (ngModelChange)="inputHandler(email)">
         </div>
 
+
+
+
         <div class="new" >
            <span class="help-block text-danger text-center" *ngIf="!email.valid && email.dirty" >
           <i class="glyphicon glyphicon-remove"></i>
@@ -31,6 +34,32 @@
           <span class="help-block text-success text-center" *ngIf="email.valid && email.dirty" >
           <i class="glyphicon glyphicon-ok"></i>
           We will email you to confirm
+        </span>
+        </div>
+
+<!--//NickName-->
+        <label for="email"> Nick Name </label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input type="text"
+                 id="nickname"
+                 name="nickname"
+                 placeholder="nickname"
+                 ngModel
+                 class="form-control"
+                 onmouseover="this.style.borderColor='#FF6600'"
+                 onmouseout="this.style.borderColor=''"
+                 required
+                 #nickname="ngModel">
+        </div>
+        <div class="new" >
+           <span class="help-block text-danger text-center" *ngIf="!nickname.valid && nickname.dirty" >
+          <i class="glyphicon glyphicon-remove"></i>
+          please type in a valid nickname
+        </span>
+          <span class="help-block text-success text-center" *ngIf="nickname.valid && nickname.dirty" >
+          <i class="glyphicon glyphicon-ok"></i>
+          nickname ok!
         </span>
         </div>
 
@@ -138,10 +167,11 @@
 
         <button class="btn btn-primary center-block"
                 type="submit">
+                 Sign Up
                 <!--[disabled]="!f.valid">-->
 
 
-                 Sign up
+
         </button>
       </form>
     </div>

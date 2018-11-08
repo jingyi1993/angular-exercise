@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {NgModel} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {HttpClient} from '@angular/common/http';
+import * as fireBase from 'firebase';
 
 @Component({
   selector: 'app-signup',
@@ -16,31 +17,38 @@ export class SignupComponent implements OnInit {
   confirmInformation = '';
 
 
-  constructor(private authService: AuthService, private http: HttpClient) { }
+  constructor(private authService: AuthService, private http: HttpClient) {
+  }
 
   ngOnInit() {
   }
-  onSignup (form: NgForm) {
+
+  onSignup(form: NgForm) {
     console.log('signup form submitted!');
     console.log(form);
 
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signupUser(email, password)
-      .then(res => {console.log(res);
-                            this.http.post('https://angular-signin-3fd3d.firebaseio.com/data.json', form.value)
-                              .subscribe(
-                                (response) => console.log(response),
-                                (error) => console.log(error)
-                              );
-
-                             })
+      .then(res => {
+        const uuid = res.user.uid;
+        // this.http.post('https://angular-signin-3fd3d.firebaseio.com/data.json', form.value)
+        //   .subscribe(
+        //     (response) => console.log(response),
+        //     (error) => console.log(error)
+        //   );
+        fireBase.database().ref('users/' + uuid).set(
+          form.value
+        );
+      })
       .catch(err => console.log(err));
   }
-  inputHandler (email: NgModel) {
+
+  inputHandler(email: NgModel) {
     console.log(email);
   }
-  passwordChangeHandler (password: NgModel) {
+
+  passwordChangeHandler(password: NgModel) {
     console.log(password);
     this.password = password.value;
   }
@@ -54,6 +62,6 @@ export class SignupComponent implements OnInit {
       this.confirmInformation = 'password matches';
     }
   }
- }
+}
 
 

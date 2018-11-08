@@ -8,14 +8,14 @@ import * as firebase from 'firebase';
   h3{color: pink}
   `]
 })
-export class AppComponent  {
+export class AppComponent {
 
   ngOnInit () {
     firebase.initializeApp({
       apiKey:  "AIzaSyAZ_djBEUVQAFzDBPsECqF9saGJpXwx0jU",
       authDomain:  "angular-signin-3fd3d.firebaseapp.com",
+      databaseURL:  "https://angular-signin-3fd3d.firebaseio.com"
     });
-
   }
 
 
