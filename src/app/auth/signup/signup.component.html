@@ -1,11 +1,27 @@
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-xs-12">
+      <div class="p-3 mb-2 ml-3 mr-3 mt-2   shadow-lg rounded bg-light" style="opacity: 0.75;">
+
+           <div class="row mt-2">
+
+             <div class="container-fluid" style="margin-bottom: 5rem">
+                 <h1 class="text-muted text-center ts-5">
+                   Register only takes 8s
+                 </h1>
+             </div>
 
 
-<div class="p-3 mb-2  text-white mt-5 shadow-lg rounded bg-light">
-  <div class="row ">
-    <!--<div class="col-xs-12 col-sm-10 clo-md-8 col-sm-offset-1 col-md-offset-2 " >-->
       <div class="col-md-6">
-        <h1 style="color: black">github-cards</h1>
-        <p class="lead" style="color: black">Generate your personalized Github profile card below!</p>
+        <h1 class="text-muted text-center">Hey you!</h1>
+
+          <img class="bg" >
+
+        <h4 class="text-muted" style="margin-top: 100px">About Me</h4>
+        <p class="text-muted mt-2">Her name is Maggie, She loves photography and computer technology, so she wants to be a web developer because it combines designing and coding </p>
+
+        <a routerLink="/website">jump me to <strong>Maggie's</strong> area </a>
+
       </div>
 
       <div class="col-md-6">
@@ -14,7 +30,7 @@
         <label for="email"> Mail </label>
         <div class="input-group">
 
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope ml-2 mr-2"></i></span>
           <input type="text"
                  id="email"
                  name="email"
@@ -46,7 +62,7 @@
 <!--//NickName-->
         <label for="email"> Nick Name </label>
         <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user ml-2 mr-2"></i></span>
           <input type="text"
                  id="nickname"
                  name="nickname"
@@ -68,11 +84,11 @@
           nickname ok!
         </span>
         </div>
-
+<!--password-->
         <label for="password"> Password</label>
         <div class="input-group">
           <span class="input-group-addon">
-            <i class="glyphicon glyphicon-lock"></i>
+            <i class="glyphicon glyphicon-lock ml-2 mr-2"></i>
           </span>
           <input type="password"
                  id="password"
@@ -101,7 +117,7 @@
        <!--//type in confirm password-->
         <label for="repassword"> Confirm Password</label>
         <div class="input-group ">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock ml-2 mr-2"></i></span>
           <input type="password"
                  id="repassword"
                  name="repassword"
@@ -139,14 +155,62 @@
         </span>
         </div>
 
+        <!--Github-->
+        <label> Github</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock ml-2 mr-2"></i>
+          </span>
+          <input type="git"
+                 id="git"
+                 name="git"
+                 ngModel
+                 class="form-control"
+                 placeholder="Github"
+                 onmouseover="this.style.borderColor='#FF6600'"
+                 onmouseout="this.style.borderColor=''"
+                 required
+                 #git="ngModel">
+        </div>
+        <!--<div class="new">-->
+          <!--<span class="help-block text-danger text-center" *ngIf="!password.valid && password.dirty">-->
+           <!--<i class="glyphicon glyphicon-remove"></i>-->
+          <!--please enter password of minlength 6-->
+        <!--</span>-->
+          <!--<span class="help-block text-success text-center" *ngIf="password.valid && password.dirty" >-->
+          <!--<i class="glyphicon glyphicon-ok"></i>-->
+          <!--the password is ok-->
+        <!--</span>-->
+        <!--</div>-->
+<!--linkedin-->
+
+        <label > Linkedin</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock ml-2 mr-2"></i>
+          </span>
+          <input type="linkedin"
+                 id="linkedin"
+                 name="linkedin"
+                 ngModel
+                 class="form-control"
+                 placeholder="linkedin"
+                 onmouseover="this.style.borderColor='#FF6600'"
+                 onmouseout="this.style.borderColor=''"
+                 required
+                 #linkedin="ngModel"
+                 >
+        </div>
+
         <!--//type in text-->
 
         <label for="exampleFormControlTextarea1">Example textarea</label>
-        <div class="input-group" >
+        <div class="input-group mb-4" >
           <textarea class="form-control"
                     type="text"
                     name="textinput"
                     id="exampleFormControlTextarea1"
+                    placeholder="currently I am working as a ..."
                     rows="3"
                     required
                      ngModel>
@@ -154,9 +218,9 @@
           </textarea>
         </div>
 
-        //select constellation
+        <!--//select constellation-->
 
-        <div class="input-group">
+        <div class="input-group mb-4">
           <label> constellation </label>
             <select class="form-control form-control-lg"
                     ngModel
@@ -172,7 +236,8 @@
 
 
         <button class="btn btn-primary center-block"
-                type="submit">
+                type="submit"
+                style="width:-webkit-fill-available">
                  Sign Up
                 <!--[disabled]="!f.valid">-->
 
@@ -181,10 +246,13 @@
         </button>
       </form>
       <!--</div>-->
+        <p class="text-center text-muted " style="margin-top: 10px">Already a member <a class="text-primary" routerLink="/signin">Signin now</a></p>
     </div>
   </div>
 </div>
-
+    </div>
+  </div>
+</div>
 
 
 

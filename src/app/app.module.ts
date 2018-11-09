@@ -17,6 +17,7 @@ import {AuthService} from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
 import {DropdownDirective} from './shared/dropdown.directive';
 import { ProfileComponent } from './profile/profile.component';
+import { PersonalWebsiteComponent } from './personal-website/personal-website.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ProfileComponent } from './profile/profile.component';
     HeaderComponent,
     DropdownDirective,
     ProfileComponent,
+    PersonalWebsiteComponent,
   ],
   imports: [
     HttpClientModule,
@@ -39,7 +41,8 @@ import { ProfileComponent } from './profile/profile.component';
       {path: '' , component: ServersComponent},
       {path: 'signin' , component: SigninComponent},
       {path: 'signup' , component: SignupComponent},
-      {path: 'profile' , component: ProfileComponent}
+      {path: 'profile' , component: ProfileComponent},
+      {path: 'website', component: PersonalWebsiteComponent},
     ])
   ],
   providers: [

@@ -12,6 +12,8 @@ export class ProfileComponent implements OnInit {
   constellation;
   textinput;
   nickname;
+  linkedin;
+  git;
   name;
   text;
 
@@ -25,6 +27,8 @@ export class ProfileComponent implements OnInit {
         this.constellation = message.constellation;
         this.textinput = message.textinput;
         this.nickname = message.nickname;
+        this.linkedin = message.linkedin;
+        this.git = message.git;
         // this.name = message.name;
       });
     } else {

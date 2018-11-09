@@ -1,30 +1,34 @@
 <div >
 
-  {{email}} {{constellation}} {{textinput}} {{nickname}}
+  {{email}} {{constellation}} {{textinput}} {{nickname}} {{linkedin}} {{git}}
 
 </div>
 
-
-
-
-<div class="container" >
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="container" >
   <div class="row">
     <div class="col-md-12">
       <div class="jumbotron mt-5 shadow-lg rounded bg-light">
         <div class="row">
           <div class="col-md-6">
-            <h1 class="">github-cards</h1>
-            <p class="lead">Generate your personalized Github profile card below!</p>
+            <img
+                 class="profile-photo-edit__preview img-circle center-block"
+                 style="height: 100px ;width: 100px"
+                 src="https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2017%2F08%2Frabbit-3.jpg%3Fw%3D2000&w=700&c=sc&poi=face&q=85" alt="">
+            <h4 class="text-center" style="color: black">{{nickname}}</h4>
+            <p class="lead text-center">
+            <i class="glyphicon glyphicon-envelope ml-2 mr-2"></i>
+          {{email}}</p>
+            <p class="lead text-center">
+              <i class="icon-linkedin ml-2 mr-2"></i>
+              {{linkedin}}</p>
+
+
           </div>
           <div class="col-md-6">
-            <form id="github-profile-form">
-              <div class="form-group">
-                <label for="github-username">GitHub Username</label>
-                <input type="text" class="form-control" id="github-username" aria-describedby="githubhelp" placeholder="joe-lynn">
-                <small id="githubhelp" class="form-text text-muted">Profile data must be set to public</small>
-              </div>
-              <button type="submit" class="btn btn-info">Submit</button>
-            </form>
+            <p>{{textinput}}</p>
           </div>
         </div>
       </div>
@@ -63,6 +67,9 @@
         <!--</div>-->
       <!--</div>-->
     <!--</div>-->
+  </div>
+</div>
+    </div>
   </div>
 </div>
 
