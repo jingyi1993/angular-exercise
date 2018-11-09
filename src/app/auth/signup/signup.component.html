@@ -1,10 +1,16 @@
 
 
-<div class="p-3 mb-2 bg-secondary text-white">
-  <div class="row rounded border border-primary"
-       >
-    <div class="col-xs-12 col-sm-10 clo-md-8 col-sm-offset-1 col-md-offset-2" >
-      <form (ngSubmit)="onSignup(f)" #f="ngForm"style="margin-right: 190px">
+<div class="p-3 mb-2  text-white mt-5 shadow-lg rounded bg-light">
+  <div class="row ">
+    <!--<div class="col-xs-12 col-sm-10 clo-md-8 col-sm-offset-1 col-md-offset-2 " >-->
+      <div class="col-md-6">
+        <h1 style="color: black">github-cards</h1>
+        <p class="lead" style="color: black">Generate your personalized Github profile card below!</p>
+      </div>
+
+      <div class="col-md-6">
+      <form (ngSubmit)="onSignup(f)" #f="ngForm">
+
         <label for="email"> Mail </label>
         <div class="input-group">
 
@@ -92,8 +98,8 @@
         </span>
         </div>
 
-       //type in confirm password
-        <label for="password"> Confirm Password</label>
+       <!--//type in confirm password-->
+        <label for="repassword"> Confirm Password</label>
         <div class="input-group ">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
           <input type="password"
@@ -133,7 +139,7 @@
         </span>
         </div>
 
-        //type in text
+        <!--//type in text-->
 
         <label for="exampleFormControlTextarea1">Example textarea</label>
         <div class="input-group" >
@@ -174,6 +180,7 @@
 
         </button>
       </form>
+      <!--</div>-->
     </div>
   </div>
 </div>

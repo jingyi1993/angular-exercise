@@ -1,0 +1,10 @@
+.jumbotron{
+  width: 100%
+}
+.embed-text{
+  resize: none;
+  width: 400px
+}
+a,a:hover,a:focus,a:visited{
+  text-decoration: none;
+}
