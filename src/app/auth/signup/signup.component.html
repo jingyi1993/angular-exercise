@@ -3,257 +3,166 @@
     <div class="col-xs-12">
       <div class="p-3 mb-2 ml-3 mr-3 mt-2   shadow-lg rounded bg-light" style="opacity: 0.75;">
 
-           <div class="row mt-2">
+        <div class="row mt-2">
 
-             <div class="container-fluid" style="margin-bottom: 5rem">
-                 <h1 class="text-muted text-center ts-5">
-                   Register only takes 8s
-                 </h1>
-             </div>
+          <div class="container-fluid" style="margin-bottom: 5rem">
+            <h1 class="text-muted text-center ts-5">
+              Register only takes 8s
+            </h1>
+          </div>
+          <div class="col-md-6">
+            <h1 class="col text-muted text-center"><strong>Hey You</strong></h1>
+            <img class="col bg pt-10">
+            <h3 class=" col text-muted mt-8"><strong>About Her</strong></h3>
+            <h4 class="col text-muted pt-2"><em>Her name is Maggie, She loves photography and computer technology, so
+                she
+                wants
+                to be a web developer because it combines designing and coding </em></h4>
+            <h3 class="col text-center"><i class="glyphicon glyphicon-hand-right mr-3"></i><a routerLink="/website">Jump
+                me
+                to <strong>Maggie's</strong> area </a></h3>
+          </div>
 
+          <div class="col-md-6">
+            <form (ngSubmit)="onSignup(f)" #f="ngForm">
 
-      <div class="col-md-6">
-        <h1 class="text-muted text-center">Hey you!</h1>
+              <label for="email"> Mail </label>
+              <div class="input-group">
 
-          <img class="bg1 img-circle center-block" style="margin-bottom: 7rem;
-    margin-top: 2rem;">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope ml-3 mr-3"></i></span>
+                <input type="text" id="email" name="email" placeholder="email" ngModel class="form-control" onmouseover="this.style.borderColor='#FF6600'"
+                  onmouseout="this.style.borderColor=''" email required #email="ngModel" (ngModelChange)="inputHandler(email)">
+              </div>
 
-        <h4 class="text-muted mt-5 text-center">About Me</h4>
-        <p class="text-muted mt-2">Her name is Maggie, She loves photography and computer technology, so she wants to be a web developer because it combines designing and coding </p>
+              <div class="new">
+                <span class="help-block text-danger text-center" *ngIf="!email.valid && email.dirty">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  please type in a valid email
+                </span>
+                <span class="help-block text-success text-center" *ngIf="email.valid && email.dirty">
+                  <i class="glyphicon glyphicon-ok"></i>
+                  We will email you to confirm
+                </span>
+              </div>
 
-        <a routerLink="/website">jump me to <strong>Maggie's</strong> area </a>
+              <!--//NickName-->
+              <label for="Nick Name"> Nick Name </label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user ml-3 mr-3"></i></span>
+                <input type="text" id="nickname" name="nickname" placeholder="nickname" ngModel class="form-control"
+                  onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" required
+                  #nickname="ngModel">
+              </div>
+              <div class="new">
+                <span class="help-block text-danger text-center" *ngIf="!nickname.valid && nickname.dirty">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  please type in a valid nickname
+                </span>
+                <span class="help-block text-success text-center" *ngIf="nickname.valid && nickname.dirty">
+                  <i class="glyphicon glyphicon-ok"></i>
+                  nickname ok!
+                </span>
+              </div>
+              <!--password-->
+              <label for="password"> Password</label>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-lock ml-3 mr-3"></i>
+                </span>
+                <input type="password" id="password" name="password" ngModel class="form-control" placeholder="password"
+                  onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" minlength="6"
+                  required #password="ngModel" (ngModelChange)="passwordChangeHandler(password)">
+              </div>
+              <div class="new">
+                <span class="help-block text-danger text-center" *ngIf="!password.valid && password.dirty">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  please enter password of minlength 6
+                </span>
+                <span class="help-block text-success text-center" *ngIf="password.valid && password.dirty">
+                  <i class="glyphicon glyphicon-ok"></i>
+                  the password is ok
+                </span>
+              </div>
 
-      </div>
+              <!--//type in confirm password-->
+              <label for="repassword"> Confirm Password</label>
+              <div class="input-group ">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock ml-3 mr-3"></i></span>
+                <input type="password" id="repassword" name="repassword" ngModel class="form-control" placeholder="please type in password again"
+                  onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" minlength="6"
+                  required #repassword="ngModel" pattern=password (ngModelChange)="repasswordChangeHandler(repassword)">
+              </div>
 
-      <div class="col-md-6">
-      <form (ngSubmit)="onSignup(f)" #f="ngForm">
+              <div class="new">
+                <span class="help-block text-danger text-center" *ngIf="repassword.dirty&& confirmInformation ==='please re-enter right password!'">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  {{confirmInformation}}
+                </span>
+                <span class="help-block text-success text-center" *ngIf="repassword.dirty && confirmInformation ==='password matches'">
+                  <i class="glyphicon glyphicon-ok"></i>
+                  {{confirmInformation}}
+                </span>
+              </div>
 
-        <label for="email"> Mail </label>
-        <div class="input-group">
+              <!--Github-->
+              <label> Github</label>
+              <div class="input-group">
+                <span class="input-group-addon pl-2 pr-2">
+                  <i class="fab fa-github fa-lg"></i>
+                </span>
+                <input type="git" id="git" name="git" ngModel class="form-control" placeholder="Github" onmouseover="this.style.borderColor='#FF6600'"
+                  onmouseout="this.style.borderColor=''" required #git="ngModel">
+              </div>
+              <div class="new"></div>
+              <!--Linkedin-->
+              <label> Linkedin</label>
+              <div class="input-group">
+                <span class="input-group-addon pl-2 pr-2">
+                  <i class="fab fa-linkedin fa-lg"></i>
+                </span>
+                <input type="linkedin" id="linkedin" name="linkedin" ngModel class="form-control" placeholder="linkedin"
+                  onmouseover="this.style.borderColor='#FF6600'" onmouseout="this.style.borderColor=''" required
+                  #linkedin="ngModel">
+              </div>
 
-          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope ml-2 mr-2"></i></span>
-          <input type="text"
-                 id="email"
-                 name="email"
-                 placeholder="email"
-                 ngModel
-                 class="form-control"
-                 onmouseover="this.style.borderColor='#FF6600'"
-                 onmouseout="this.style.borderColor=''"
-                 email
-                 required
-                  #email="ngModel"
-                  (ngModelChange)="inputHandler(email)">
-        </div>
-
-
-
-
-        <div class="new" >
-           <span class="help-block text-danger text-center" *ngIf="!email.valid && email.dirty" >
-          <i class="glyphicon glyphicon-remove"></i>
-          please type in a valid email
-        </span>
-          <span class="help-block text-success text-center" *ngIf="email.valid && email.dirty" >
-          <i class="glyphicon glyphicon-ok"></i>
-          We will email you to confirm
-        </span>
-        </div>
-
-<!--//NickName-->
-        <label for="email"> Nick Name </label>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user ml-2 mr-2"></i></span>
-          <input type="text"
-                 id="nickname"
-                 name="nickname"
-                 placeholder="nickname"
-                 ngModel
-                 class="form-control"
-                 onmouseover="this.style.borderColor='#FF6600'"
-                 onmouseout="this.style.borderColor=''"
-                 required
-                 #nickname="ngModel">
-        </div>
-        <div class="new" >
-           <span class="help-block text-danger text-center" *ngIf="!nickname.valid && nickname.dirty" >
-          <i class="glyphicon glyphicon-remove"></i>
-          please type in a valid nickname
-        </span>
-          <span class="help-block text-success text-center" *ngIf="nickname.valid && nickname.dirty" >
-          <i class="glyphicon glyphicon-ok"></i>
-          nickname ok!
-        </span>
-        </div>
-<!--password-->
-        <label for="password"> Password</label>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-lock ml-2 mr-2"></i>
-          </span>
-          <input type="password"
-                 id="password"
-                 name="password"
-                 ngModel
-                 class="form-control"
-                 placeholder="password"
-                 onmouseover="this.style.borderColor='#FF6600'"
-                 onmouseout="this.style.borderColor=''"
-                 minlength="6"
-                 required
-                 #password="ngModel"
-                 (ngModelChange)="passwordChangeHandler(password)">
-        </div>
-        <div class="new">
-          <span class="help-block text-danger text-center" *ngIf="!password.valid && password.dirty">
-           <i class="glyphicon glyphicon-remove"></i>
-          please enter password of minlength 6
-        </span>
-          <span class="help-block text-success text-center" *ngIf="password.valid && password.dirty" >
-          <i class="glyphicon glyphicon-ok"></i>
-          the password is ok
-        </span>
-        </div>
-
-       <!--//type in confirm password-->
-        <label for="repassword"> Confirm Password</label>
-        <div class="input-group ">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock ml-2 mr-2"></i></span>
-          <input type="password"
-                 id="repassword"
-                 name="repassword"
-                 ngModel
-                 class="form-control"
-                 placeholder="please type in password again"
-                 onmouseover="this.style.borderColor='#FF6600'"
-                 onmouseout="this.style.borderColor=''"
-                 minlength="6"
-                 required
-                 #repassword="ngModel"
-                 pattern= password
-                 (ngModelChange)="repasswordChangeHandler(repassword)">
-        </div>
-
-        <div class="new">
-              <!--<span class="help-block text-danger text-center" *ngIf="!repassword.valid && repassword.dirty">-->
-           <!--<i class="glyphicon glyphicon-remove"></i>-->
-          <!--please enter password of minlength 6-->
-        <!--</span>-->
-          <!--<span class="help-block text-success text-center" *ngIf="repassword.valid && repassword.dirty" >-->
-          <!--<i class="glyphicon glyphicon-ok"></i>-->
-          <!--the password is ok-->
-        <!--</span>-->
-
-           <span class="help-block text-danger text-center"
-                 *ngIf="repassword.dirty&& confirmInformation ==='please re-enter right password!'" >
-          <i class="glyphicon glyphicon-remove"></i>
-          {{confirmInformation}}
-        </span>
-          <span class="help-block text-success text-center"
-                *ngIf="repassword.dirty && confirmInformation ==='password matches'" >
-          <i class="glyphicon glyphicon-ok"></i>
-          {{confirmInformation}}
-        </span>
-        </div>
-
-        <!--Github-->
-        <label> Github</label>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-lock ml-2 mr-2"></i>
-          </span>
-          <input type="git"
-                 id="git"
-                 name="git"
-                 ngModel
-                 class="form-control"
-                 placeholder="Github"
-                 onmouseover="this.style.borderColor='#FF6600'"
-                 onmouseout="this.style.borderColor=''"
-                 required
-                 #git="ngModel">
-        </div>
-        <!--<div class="new">-->
-          <!--<span class="help-block text-danger text-center" *ngIf="!password.valid && password.dirty">-->
-           <!--<i class="glyphicon glyphicon-remove"></i>-->
-          <!--please enter password of minlength 6-->
-        <!--</span>-->
-          <!--<span class="help-block text-success text-center" *ngIf="password.valid && password.dirty" >-->
-          <!--<i class="glyphicon glyphicon-ok"></i>-->
-          <!--the password is ok-->
-        <!--</span>-->
-        <!--</div>-->
-<!--linkedin-->
-
-        <label > Linkedin</label>
-        <div class="input-group">
-          <span class="input-group-addon">
-            <i class="glyphicon glyphicon-lock ml-2 mr-2"></i>
-          </span>
-          <input type="linkedin"
-                 id="linkedin"
-                 name="linkedin"
-                 ngModel
-                 class="form-control"
-                 placeholder="linkedin"
-                 onmouseover="this.style.borderColor='#FF6600'"
-                 onmouseout="this.style.borderColor=''"
-                 required
-                 #linkedin="ngModel"
-                 >
-        </div>
-
-        <!--//type in text-->
-
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <div class="input-group mb-4" >
-          <textarea class="form-control"
-                    type="text"
-                    name="textinput"
-                    id="exampleFormControlTextarea1"
-                    placeholder="currently I am working as a ..."
-                    rows="3"
-                    required
-                     ngModel>
+              <!--//type in text-->
+              <div class="new"></div>
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <div class="input-group mb-4">
+                <textarea class="form-control" type="text" name="textinput" id="exampleFormControlTextarea1"
+                  placeholder="currently I am working as a ..." rows="3" required ngModel>
 
           </textarea>
-        </div>
+              </div>
 
-        <!--//select constellation-->
+              <!--//select constellation-->
 
-        <div class="input-group mb-4">
-          <label> constellation </label>
-            <select class="form-control form-control-lg"
-                    ngModel
-                    name="constellation"
-                    id="option">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+              <!-- <div class="input-group mb-4">
+                <label> constellation </label>
+                <select class="form-control form-control-lg" ngModel name="constellation" id="option">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
 
-        </div>
+              </div> -->
 
 
 
-        <button class="btn btn-primary center-block"
-                type="submit"
-                style="width:-webkit-fill-available">
-                 Sign Up
+              <button class="btn btn-primary center-block" type="submit" style="width:-webkit-fill-available">
+                Sign Up
                 <!--[disabled]="!f.valid">-->
 
 
 
-        </button>
-      </form>
-      <!--</div>-->
-        <p class="text-center text-muted " style="margin-top: 10px">Already a member <a class="text-primary" routerLink="/signin">Signin now</a></p>
+              </button>
+            </form>
+            <!--</div>-->
+            <p class="text-center text-muted " style="margin-top: 10px">Already a member <a class="text-primary"
+                routerLink="/signin">Signin now</a></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-    </div>
-  </div>
-</div>
-
-
-
