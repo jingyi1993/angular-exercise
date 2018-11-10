@@ -4,20 +4,28 @@ import {NgModel} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {HttpClient} from '@angular/common/http';
 import * as fireBase from 'firebase';
+import {Router} from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
+
 export class SignupComponent implements OnInit {
 
   password = '';
   repassword = '';
   confirmInformation = '';
+  router: Router;
+  messageSource;
 
 
-  constructor(private authService: AuthService, private http: HttpClient) {
+  constructor(private authService: AuthService, private http: HttpClient, _router: Router) {
+    this.router = _router;
   }
 
   ngOnInit() {
@@ -32,14 +40,12 @@ export class SignupComponent implements OnInit {
     this.authService.signupUser(email, password)
       .then(res => {
         const uuid = res.user.uid;
-        // this.http.post('https://angular-signin-3fd3d.firebaseio.com/data.json', form.value)
-        //   .subscribe(
-        //     (response) => console.log(response),
-        //     (error) => console.log(error)
-        //   );
         fireBase.database().ref('users/' + uuid).set(
           form.value
         );
+        console.log(form.value);
+        this.authService.signinUser(form.value.email, form.value.password);
+        setTimeout(() => this.router.navigateByUrl('/profile'), 2000);
       })
       .catch(err => console.log(err));
   }

@@ -2,17 +2,19 @@ import * as firebase from 'firebase';
 import {BehaviorSubject} from 'rxjs';
 import {Injectable} from '@angular/core';
 
+// import {Router} from '@angular/router';
+
 @Injectable()
 
-export class AuthService  {
+export class AuthService {
   token;
   MessageOfSignIn;
   messageSource;
+  // router: Router;
   currentMessage;
 
   signupUser(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
-
   }
 
   signinUser(email: string, password: string) {
@@ -25,32 +27,17 @@ export class AuthService  {
             (token: string) => this.token = token
           );
         const userId = firebase.auth().currentUser.uid;
-        console.log(userId);
         // get user's information from firebase database
         firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
           const userEmail = (snapshot.val() && snapshot.val().email) || 'Anonymous';
-          console.log(userEmail);
-          console.log(snapshot.val());
           this.messageSource = new BehaviorSubject(snapshot.val()).asObservable();
-
-          // console.log(messageSource);
         });
-
       })
       .catch(err => {
         console.log(err);
-          this.MessageOfSignIn = 'Failed! ';
+        this.MessageOfSignIn = 'The password is invalid or the user does not have a password.';
       });
   }
-
-  // getToken () {
-  //   return firebase.auth().currentUser.getIdToken();
-  //     // .then(
-  //     //   (token: string) => this.token = token,
-  //     // )
-  //     //  .catch(err => console.log(err));
-  // }
-
 
   isAuthenticated() {
     // return this.token !== null;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,7 +21,7 @@ export class ProfileComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    if (this.authService.messageSource) {
+    if (this.authService.messageSource ) {
       console.log(this.authService. messageSource);
       this.authService.messageSource.subscribe(message => {
         this.email = message.email;
@@ -29,7 +30,6 @@ export class ProfileComponent implements OnInit {
         this.nickname = message.nickname;
         this.linkedin = message.linkedin;
         this.git = message.git;
-        // this.name = message.name;
       });
     } else {
       console.log('success!');

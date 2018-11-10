@@ -38,14 +38,13 @@ label {
 /*}*/
 
 /*style="height: 30px; display: flex; justify-content: center; align-items: center"*/
-.bg {
+.bg1 {
   background: url('../../../assets/maggie.jpg');
   border-radius: 500px;
-  height: 35%;
-  width: 70%;
   background-size: cover;
   background-position: center;
-  margin-left: 4rem;
+  height: 200px;
+  width: 200px;
 
 }
 
