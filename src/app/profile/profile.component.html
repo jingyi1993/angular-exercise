@@ -1,4 +1,4 @@
-<div >
+<div>
 
   {{email}} {{constellation}} {{textinput}} {{nickname}} {{linkedin}} {{git}}
 
@@ -7,71 +7,68 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="container" >
-  <div class="row">
-    <div class="col-md-12">
-      <div class="jumbotron mt-5 shadow-lg rounded bg-light">
+      <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <img
-                 class="profile-photo-edit__preview img-circle center-block"
-                 style="height: 100px ;width: 100px"
-                 src="https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2017%2F08%2Frabbit-3.jpg%3Fw%3D2000&w=700&c=sc&poi=face&q=85" alt="">
-            <h4 class="text-center" style="color: black">{{nickname}}</h4>
-            <p class="lead text-center">
-            <i class="glyphicon glyphicon-envelope ml-2 mr-2"></i>
-          {{email}}</p>
-            <p class="lead text-center">
-              <i class="icon-linkedin ml-2 mr-2"></i>
-              {{linkedin}}</p>
-
-
+          <div class="col-md-12">
+            <div class="jumbotron mt-5 shadow-lg rounded bg-light">
+              <div class="row">
+                <div class="col-md-6">
+                  <img class="profile-photo-edit__preview img-circle center-block" style="height: 100px ;width: 100px"
+                    src="https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2017%2F08%2Frabbit-3.jpg%3Fw%3D2000&w=700&c=sc&poi=face&q=85"
+                    alt="">
+                  <h4 class="text-center" style="color: black">{{nickname}}</h4>
+                  <p class="lead text-center" *ngIf="email">
+                    <i class="glyphicon glyphicon-envelope ml-2 mr-2"></i>
+                    <a href={{email}}>{{email}}</a></p>
+                  <p class="lead text-center" *ngIf="linkedin">
+                    <i class="fab fa-linkedin"></i>
+                    <a href={{linkedin}}>{{linkedin}}</a></p>
+                  <p class="lead text-center" *ngIf="git">
+                    <i class="fab fa-github"></i>
+                    <a href={{git}}>{{git}}</a></p>
+                </div>
+                <div class="col-md-6">
+                  <p>{{textinput}}</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <p>{{textinput}}</p>
-          </div>
+        </div>
+        <div class="row">
+          <!--<div class="col-md-6">-->
+          <!--<div class="card">-->
+          <!--<div class="card-body">-->
+          <!--<h5 class="card-title">Classique - 400x200</h5>-->
+          <!--<div class="row">-->
+          <!--<iframe id="classique-iframe" frameborder="none" scrolling="no" class="mx-auto" width="415" height="215" src="?usr=joe-lynn&crd=classique" ></iframe>-->
+          <!--</div>-->
+          <!--<div class="row mt-3">-->
+          <!--<textarea readonly onclick="this.select()" class="form-control mx-auto embed-text" id="classique-embed-text" rows="3"></textarea>-->
+          <!--</div>-->
+          <!--<div class="row mt-2">-->
+          <!--<button onclick="selectEmbed('classique-embed-text')" class="btn btn-sm btn-default mx-auto">Copy!</button>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-6">-->
+          <!--<div class="card">-->
+          <!--<div class="card-body">-->
+          <!--<h5 class="card-title">Obvert - 300x400</h5>-->
+          <!--<div class="row">-->
+          <!--<iframe id="obvert-iframe" frameborder="none" scrolling="no" class="mx-auto" width="310" height="388" src="?usr=joe-lynn&crd=obvert&pri=4078C0" ></iframe>-->
+          <!--</div>-->
+          <!--<div class="row mt-2">-->
+          <!--<textarea readonly onclick="this.select()" style="resize: none; width: 400px;" class="form-control mx-auto embed-text" id="obvert-embed-text" rows="3"></textarea>-->
+          <!--</div>-->
+          <!--<div class="row mt-2">-->
+          <!--<button onclick="selectEmbed('obvert-embed-text')" class="btn btn-sm btn-default mx-auto">Copy!</button>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <!--<div class="col-md-6">-->
-      <!--<div class="card">-->
-        <!--<div class="card-body">-->
-          <!--<h5 class="card-title">Classique - 400x200</h5>-->
-          <!--<div class="row">-->
-            <!--<iframe id="classique-iframe" frameborder="none" scrolling="no" class="mx-auto" width="415" height="215" src="?usr=joe-lynn&crd=classique" ></iframe>-->
-          <!--</div>-->
-          <!--<div class="row mt-3">-->
-            <!--<textarea readonly onclick="this.select()" class="form-control mx-auto embed-text" id="classique-embed-text" rows="3"></textarea>-->
-          <!--</div>-->
-          <!--<div class="row mt-2">-->
-            <!--<button onclick="selectEmbed('classique-embed-text')" class="btn btn-sm btn-default mx-auto">Copy!</button>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="col-md-6">-->
-      <!--<div class="card">-->
-        <!--<div class="card-body">-->
-          <!--<h5 class="card-title">Obvert - 300x400</h5>-->
-          <!--<div class="row">-->
-            <!--<iframe id="obvert-iframe" frameborder="none" scrolling="no" class="mx-auto" width="310" height="388" src="?usr=joe-lynn&crd=obvert&pri=4078C0" ></iframe>-->
-          <!--</div>-->
-          <!--<div class="row mt-2">-->
-            <!--<textarea readonly onclick="this.select()" style="resize: none; width: 400px;" class="form-control mx-auto embed-text" id="obvert-embed-text" rows="3"></textarea>-->
-          <!--</div>-->
-          <!--<div class="row mt-2">-->
-            <!--<button onclick="selectEmbed('obvert-embed-text')" class="btn btn-sm btn-default mx-auto">Copy!</button>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  </div>
 </div>
-    </div>
-  </div>
-</div>
-
-
-
