@@ -1,44 +1,7 @@
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--<span class="navbar-toggler-icon"></span>-->
-<!--</button>-->
-<!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--<ul class="navbar-nav mr-auto">-->
-
-<!--<li class="nav-item">-->
-<!--<a class="nav-link" routerLink="/signin">Signin</a>-->
-<!--</li>-->
-<!--<li class="nav-item">-->
-<!--<a class="nav-link" routerLink="/signup">Signup</a>-->
-<!--</li>-->
-
-
-<!--</ul>-->
-<!--<ul class="navbar-nav navbar-right">-->
-
-
-<!--<li class="nav-item dropdown " appDropdown>-->
-<!--<a class="nav-link dropdown-toggle"-->
-<!--id="navbarDropdownMenuLink" -->
-<!--data-toggle="dropdown" aria-haspopup="true"-->
-<!--aria-expanded="false">-->
-<!--Dropdown linkkkkk-->
-<!--</a>-->
-<!--<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
-<!--<a class="dropdown-item" href="/signin">Sign In</a>-->
-<!--<a class="dropdown-item" href="/signup">Sign Up</a>-->
-
-<!--</div>-->
-<!--</li>-->
-<!--</ul>-->
-
-
-<!--</div>-->
-<!--</nav>-->
 
 <div class="container-fluid px-0">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <span class="navbar-brand"><em><a routerLink="/website">Maggie's HOME</a></em></span>
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,15 +9,25 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/signin">Sign In <span class="sr-only">(current)</span></a>
+          <strong>
+            <a class="nav-link" routerLink="/signin">Sign In <span class="sr-only">(current)</span></a>
+          </strong>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/signup">Sign Up</a>
+          <strong>
+            <a class="nav-link" routerLink="/signup">Sign Up</a>
+          </strong>
         </li>
-        <li class="nav-item" *ngIf="authService.token">
-          <a class="nav-link" routerLink="/profile">Profile <span class="sr-only">(current)</span></a>
-          <!--<a class="nav-link" routerLink="/profile">profile</a>-->
+        <li class="nav-item">
+          <strong>
+            <a class="nav-link" routerLink="/profile">Create Profile</a>
+          </strong>
         </li>
+
+        <!--<li class="nav-item" *ngIf="authService.messageSource">-->
+          <!--<a class="nav-link" routerLink="/profile">Profile <span class="sr-only">(current)</span></a>-->
+          <!--&lt;!&ndash;<a class="nav-link" routerLink="/profile">profile</a>&ndash;&gt;-->
+        <!--</li>-->
 
       </ul>
     </div>

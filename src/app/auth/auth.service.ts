@@ -10,8 +10,6 @@ export class AuthService {
   token;
   MessageOfSignIn;
   messageSource;
-  // router: Router;
-  currentMessage;
 
   signupUser(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password);

@@ -15,8 +15,8 @@ export class ProfileComponent implements OnInit {
   nickname;
   linkedin;
   git;
-  name;
-  text;
+  signinAlert: string = 'false';
+
 
   constructor(private authService: AuthService) { }
 
@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
         this.git = message.git;
       });
     } else {
-      console.log('success!');
+      this.signinAlert = 'true';
     }
     // if (this.authService.signinUser().messageSource) {
     //   this.authService.signinUser().messageSource

@@ -36,7 +36,7 @@ import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.co
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: '' , component: ServersComponent},
+      {path: '' , component: SigninComponent},
       {path: 'signin' , component: SigninComponent},
       {path: 'signup' , component: SignupComponent},
       {path: 'profile' , component: ProfileComponent},
