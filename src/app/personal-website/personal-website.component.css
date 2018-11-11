@@ -23,8 +23,8 @@ p{
   font-size: 18px;
 }
 img{
-  width:200px;
-  height:200px;
+  width:400px;
+  height:400px;
   border-radius: 50%;
 }
 h1{
@@ -41,6 +41,7 @@ h1{
 .social-icons a{
   color:white;
   margin-top: 5px;
+  margin-right: 10px;
 }
 .line-break{
   border-top: solid 1px white;
@@ -49,21 +50,25 @@ h1{
 }
 .summary p{
   text-align: justify;
+  margin-top: 4rem;
 }
 .summary{
   color:white;
   width:800px;
   margin:auto;
   background-color:rgba(0,0,0,0.3);
-  margin-top: 80px;
+  margin-top: 20rem;
 }
 .summary h2{
   text-align: center;
   margin-bottom: -10px;
+  font-family: fantasy;
+  font-size: xx-large;
 }
 ul{
   font-weight: 100;
   font-family: fantasy;
+  margin-top: 4rem;
 }
 h5{
   font-weight: 100;

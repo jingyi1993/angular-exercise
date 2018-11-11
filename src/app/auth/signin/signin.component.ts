@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
+  spinner: string = 'true';
   router: Router;
   constructor(private authService: AuthService, _router: Router) {
     this.router = _router;
@@ -20,12 +20,16 @@ export class SigninComponent implements OnInit {
   }
 
    onSignin (form: NgForm ) {
+    this.spinner = 'false';
     console.log('signin form submitted!');
     console.log(form);
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signinUser(email, password);
-    setTimeout(() => this.router.navigateByUrl('/profile'), 2000);
+    setTimeout(() => {
+      this.router.navigateByUrl('/profile');
+      this.spinner = 'true' ;
+    }, 2000);
 
   }
 

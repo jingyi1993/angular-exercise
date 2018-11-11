@@ -6,9 +6,6 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-
-
-import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import {ServersComponent} from './servers/servers.component';
 import {ServerComponent} from './server/server.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -18,12 +15,12 @@ import { HeaderComponent } from './header/header.component';
 import {DropdownDirective} from './shared/dropdown.directive';
 import { ProfileComponent } from './profile/profile.component';
 import { PersonalWebsiteComponent } from './personal-website/personal-website.component';
+import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SuccessAlertComponent,
     ServerComponent,
     ServersComponent,
     SignupComponent,
@@ -32,6 +29,7 @@ import { PersonalWebsiteComponent } from './personal-website/personal-website.co
     DropdownDirective,
     ProfileComponent,
     PersonalWebsiteComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     HttpClientModule,

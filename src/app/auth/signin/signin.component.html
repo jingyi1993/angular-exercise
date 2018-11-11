@@ -114,10 +114,11 @@
                      <!--(ngModelChange)="repasswordChangeHandler(repassword)">-->
             <!--</div>-->
             <!--alert-->
-            <div *ngIf="authService.MessageOfSignIn"
+            <div *ngIf="authService.MessageOfSignIn !=='Success!'&& authService.MessageOfSignIn"
                  class="alert alert-primary" role="alert"
                  style="z-index: 999">
               {{authService.MessageOfSignIn}}
+
               <button type="button" class="close" data-dismiss="alert"    aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -127,18 +128,25 @@
 
             <hr>
 
+            <div *ngIf="spinner==='true';">
             <button class="btn btn-primary text-white btn-block nav-link"
                     type="submit"
                     style="width:-webkit-fill-available"
                     [disabled]=" !f.valid "
                     >
+
                    Sign In
-              <!--<div *ngIf="message === 'success!' ; else disable "  >-->
-                <!--<a class="nav-link" routerLink="/profile">Sign In</a>-->
-              <!--</div>-->
-              <!--<div #disable> Sign In</div>-->
-              <!--<a class="nav-link" href="/"> Sign in</a>-->
             </button>
+            </div>
+
+
+              <app-loading-spinner *ngIf="spinner === 'false'">
+
+              </app-loading-spinner>
+
+
+
+
 
 
 
@@ -147,6 +155,7 @@
 
 
           <hr>
+
           </form>
           </div>
 

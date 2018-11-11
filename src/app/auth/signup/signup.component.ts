@@ -21,7 +21,8 @@ export class SignupComponent implements OnInit {
   repassword = '';
   confirmInformation = '';
   router: Router;
-  messageSource;
+  spinner: string = 'true';
+
 
 
   constructor(private authService: AuthService, private http: HttpClient, _router: Router) {
@@ -32,6 +33,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup(form: NgForm) {
+    this.spinner = 'false';
     console.log('signup form submitted!');
     console.log(form);
 
@@ -45,7 +47,10 @@ export class SignupComponent implements OnInit {
         );
         console.log(form.value);
         this.authService.signinUser(form.value.email, form.value.password);
-        setTimeout(() => this.router.navigateByUrl('/profile'), 2000);
+        setTimeout(() => {
+          this.router.navigateByUrl('/profile');
+          this.spinner = 'true'
+        }, 2000);
       })
       .catch(err => console.log(err));
   }
