@@ -1,21 +1,26 @@
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-
-      <div class="p-3  ml-3 mr-3 mb-5 shadow-lg rounded bg-light" style="opacity: 0.75;" >
+      <div
+        class="p-3  ml-3 mr-3 mb-5 shadow-lg rounded bg-light"
+        style="opacity: 0.75;"
+      >
         <div class="text-muted mb-2">
           <h1 class="text-center">Login</h1>
           <p class="text-center">Login with your Faceook or Twitter</p>
           <div class="w-100">
             <div class="mt-1 row">
               <div class="offset-md-3 col-md-3 col-6">
-                <a class="btn btn-primary text-white btn-block btn-social btn-twitter">
+                <a
+                  class="btn btn-primary text-white btn-block btn-social btn-twitter"
+                >
                   <i class="fab fa-facebook"></i> Sign in with Facebook
                 </a>
               </div>
               <div class="col-md-3 col-6">
-                <a class="btn btn-primary text-white btn-block btn-social btn-twitter">
+                <a
+                  class="btn btn-primary text-white btn-block btn-social btn-twitter"
+                >
                   <i class="fab fa-twitter"></i> Sign in with Twitter
                 </a>
               </div>
@@ -23,147 +28,124 @@
           </div>
           <p class="text-center mt-4 mb-2">Or login with username and email</p>
         </div>
-        <div class="row mt-1" >
-          <div class="col-md-12">
-          <form (ngSubmit)="onSignin(f)"  #f="ngForm">
-            <label for="email"> Mail </label>
-            <div class="input-group">
+        <div class="row mt-1">
+          <div class="col-md-8 col-md-offset-2">
+            <form (ngSubmit)="onSignin(f)" #f="ngForm">
+              <label for="email"> Email </label>
+              <div class="input-group">
+                <span class="input-group-addon"
+                  ><i class="glyphicon glyphicon-user"></i
+                ></span>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="email"
+                  ngModel
+                  class="form-control"
+                  onmouseover="this.style.borderColor='#FF6600'"
+                  onmouseout="this.style.borderColor=''"
+                  email
+                  required
+                  #email="ngModel"
+                />
+              </div>
 
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input type="text"
-                     id="email"
-                     name="email"
-                     placeholder="email"
-                     ngModel
-                     class="form-control"
-                     onmouseover="this.style.borderColor='#FF6600'"
-                     onmouseout="this.style.borderColor=''"
-                     email
-                     required
-                     #email="ngModel"
-                     >
-            </div>
+              <div class="new">
+                <span
+                  class="help-block text-danger text-center"
+                  *ngIf="!email.valid && email.dirty"
+                >
+                  <i class="glyphicon glyphicon-remove"></i> please type in a
+                  valid email
+                </span>
+                <span
+                  class="help-block text-success text-center"
+                  *ngIf="email.valid && email.dirty"
+                >
+                  <i class="glyphicon glyphicon-ok"></i> We will email you to
+                  confirm
+                </span>
+              </div>
 
-            <div class="new" >
-                 <span class="help-block text-danger text-center" *ngIf="!email.valid && email.dirty" >
-                <i class="glyphicon glyphicon-remove"></i>
-                please type in a valid email
-              </span>
-              <span class="help-block text-success text-center" *ngIf="email.valid && email.dirty" >
-                <i class="glyphicon glyphicon-ok"></i>
-                We will email you to confirm
-              </span>
-            </div>
-
-
-
-
-            <label for="password"> Password</label>
-            <div class="input-group">
+              <label for="password"> Password</label>
+              <div class="input-group">
                 <span class="input-group-addon">
                   <i class="glyphicon glyphicon-lock"></i>
                 </span>
-              <input type="password"
-                     id="password"
-                     name="password"
-                     ngModel
-                     class="form-control"
-                     placeholder="password"
-                     onmouseover="this.style.borderColor='#FF6600'"
-                     onmouseout="this.style.borderColor=''"
-                     minlength="6"
-                     required
-                     #password="ngModel"
-                     >
-            </div>
-            <div class="new">
-                <span class="help-block text-danger text-center" *ngIf="!password.valid && password.dirty">
-                 <i class="glyphicon glyphicon-remove"></i>
-                please enter password of minlength 6
-              </span>
-              <span class="help-block text-success text-center" *ngIf=" password.valid && password.dirty" >
-                <i class="glyphicon glyphicon-ok"></i>
-                the password is ok
-              </span>
-            </div>
-            <div id="myModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-
-
-
-
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  ngModel
+                  class="form-control"
+                  placeholder="password"
+                  onmouseover="this.style.borderColor='#FF6600'"
+                  onmouseout="this.style.borderColor=''"
+                  minlength="6"
+                  required
+                  #password="ngModel"
+                />
               </div>
-            </div>
-
-
-            <!--<label for="password"> Confirm Password</label>-->
-            <!--<div class="input-group">-->
-              <!--<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
-              <!--<input type="password"-->
-                     <!--id="repassword"-->
-                     <!--name="repassword"-->
-                     <!--ngModel-->
-                     <!--class="form-control"-->
-                     <!--placeholder="please type in password again"-->
-                     <!--onmouseover="this.style.borderColor='#FF6600'"-->
-                     <!--onmouseout="this.style.borderColor=''"-->
-                     <!--minlength="6"-->
-                     <!--required-->
-                     <!--#repassword="ngModel"-->
-                     <!--pattern= password-->
-                     <!--(ngModelChange)="repasswordChangeHandler(repassword)">-->
-            <!--</div>-->
-            <!--alert-->
-            <div *ngIf="authService.MessageOfSignIn"
-                 class="alert alert-primary" role="alert"
-                 style="z-index: 999">
-              {{authService.MessageOfSignIn}}
-              <button type="button" class="close" data-dismiss="alert"    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+              <div class="new">
+                <span
+                  class="help-block text-danger text-center"
+                  *ngIf="!password.valid && password.dirty"
+                >
+                  <i class="glyphicon glyphicon-remove"></i> please enter
+                  password of minlength 6
+                </span>
+                <span
+                  class="help-block text-success text-center"
+                  *ngIf="password.valid && password.dirty"
+                >
+                  <i class="glyphicon glyphicon-ok"></i> the password is ok
+                </span>
+              </div>
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog"></div>
+              </div>
+              <div
+                *ngIf="authService.MessageOfSignIn"
+                class="alert alert-primary"
+                role="alert"
+                style="z-index: 999"
+              >
+                {{ authService.MessageOfSignIn }}
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <p>Please to try again</p>
+              </div>
+              <hr />
+              <button
+                class="btn btn-primary text-white btn-block nav-link"
+                type="submit"
+                style="width:-webkit-fill-available"
+                [disabled]="!f.valid"
+              >
+                Sign In
               </button>
-              <p>Please to try again</p>
-            </div>
-
-
-            <hr>
-
-            <button class="btn btn-primary text-white btn-block nav-link"
-                    type="submit"
-                    style="width:-webkit-fill-available"
-                    [disabled]=" !f.valid "
-                    >
-                   Sign In
-              <!--<div *ngIf="message === 'success!' ; else disable "  >-->
-                <!--<a class="nav-link" routerLink="/profile">Sign In</a>-->
-              <!--</div>-->
-              <!--<div #disable> Sign In</div>-->
-              <!--<a class="nav-link" href="/"> Sign in</a>-->
-            </button>
-
-
-
-
-
-
-
-          <hr>
-          </form>
+              <hr />
+            </form>
           </div>
 
-            <div *ngIf="authService.MessageOfSignIn">
-              <a class="nav-link text-center" routerLink="/profile">
-                jump me to profile page
-              </a>
-
-            </div>
-
+          <div *ngIf="authService.MessageOfSignIn">
+            <a class="nav-link text-center" routerLink="/profile">
+              jump me to profile page
+            </a>
+          </div>
         </div>
-        <p class="text-center text-muted">Not a member yet? <a class="text-primary" routerLink="/signup">Register now</a></p>
+        <p class="text-center text-muted">
+          Not a member yet?
+          <a class="text-primary" routerLink="/signup">Register now</a>
+        </p>
       </div>
-
     </div>
   </div>
 </div>
-
-
-
