@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.messageSource ) {
-      console.log(this.authService. messageSource);
+      console.log('2' + this.authService.messageSource);
       this.authService.messageSource.subscribe(message => {
         this.email = message.email;
         this.constellation = message.constellation;
@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
         this.git = message.git;
       });
     } else {
+      console.log('33333');
       this.signinAlert = 'true';
     }
     // if (this.authService.signinUser().messageSource) {

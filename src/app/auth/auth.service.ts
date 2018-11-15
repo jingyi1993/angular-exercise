@@ -16,25 +16,25 @@ export class AuthService {
   }
 
   signinUser(email: string, password: string) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(res => {
-        this.MessageOfSignIn = 'Success!';
-        console.log(this.MessageOfSignIn);
-        firebase.auth().currentUser.getIdToken()
-          .then(
-            (token: string) => this.token = token
-          );
-        const userId = firebase.auth().currentUser.uid;
-        // get user's information from firebase database
-        firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
-          const userEmail = (snapshot.val() && snapshot.val().email) || 'Anonymous';
-          this.messageSource = new BehaviorSubject(snapshot.val()).asObservable();
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        this.MessageOfSignIn = 'The password is invalid or the user does not have a password.';
-      });
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+      // .then(res => {
+      //   this.MessageOfSignIn = 'Success!';
+      //   console.log(this.MessageOfSignIn);
+      //   firebase.auth().currentUser.getIdToken()
+      //     .then(
+      //       (token: string) => this.token = token
+      //     );
+      //   const userId = firebase.auth().currentUser.uid;
+      //   // get user's information from firebase database
+      //   firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+      //     const userEmail = (snapshot.val() && snapshot.val().email) || 'Anonymous';
+      //     this.messageSource = new BehaviorSubject(snapshot.val()).asObservable();
+      //   });
+      // })
+      // .catch(err => {
+      //   console.log(err);
+      //   this.MessageOfSignIn = 'The password is invalid or the user does not have a password.';
+      // });
   }
 
   isAuthenticated() {
