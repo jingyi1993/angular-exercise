@@ -16,6 +16,9 @@ import {DropdownDirective} from './shared/dropdown.directive';
 import { ProfileComponent } from './profile/profile.component';
 import { PersonalWebsiteComponent } from './personal-website/personal-website.component';
 import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
+import { HomePageComponent } from './home-page/home-page.component';
+// import {MasonryComponent} from './maonry/masonry.component';
+// import {MasonryDirective} from './maonry/masonry.directive';
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.co
     ProfileComponent,
     PersonalWebsiteComponent,
     LoadingSpinnerComponent,
+    HomePageComponent,
+    // MasonryComponent,
+    // MasonryDirective,
   ],
   imports: [
     HttpClientModule,
@@ -41,6 +47,7 @@ import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.co
       {path: 'signup' , component: SignupComponent},
       {path: 'profile' , component: ProfileComponent},
       {path: 'website', component: PersonalWebsiteComponent},
+      {path : 'home', component: HomePageComponent},
     ])
   ],
   providers: [

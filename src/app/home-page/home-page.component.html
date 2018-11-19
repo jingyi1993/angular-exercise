@@ -1,0 +1,122 @@
+<!--<ul>-->
+  <!--<li *ngFor="let post of posts">-->
+    <!--{{post}}-->
+  <!--</li>-->
+<!--</ul>-->
+
+<!--<div  *ngFor="let item of posts | keyvalue">-->
+
+<!--</div>-->
+
+<!--<div class="card" style="display: flex" *ngFor="let item of posts | keyvalue">-->
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+  <!--<div class="card-body">-->
+    <!--<h5 class="card-title">{{item.value.email}}</h5>-->
+    <!--<p class="card-text">{{item.value.textinput}}</p>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="row" xmlns="http://www.w3.org/1999/html">
+
+    <div class="col-sm-4" *ngFor="let item of posts | keyvalue | slice: start: end" >
+      <div class="card" style="margin: 20px; opacity: 0.75; height: 300px">
+        <!--<div class="semi-bg">-->
+        <!--<p>{{item.value.constellation}}</p>-->
+
+        <div *ngIf="item.value.constellation === 'Capricorn' ">
+          <img src="https://data.whicdn.com/images/320741430/original.png?t=1539375793" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Aquarius'">
+          <img src="https://i2.wp.com/numerologydailyreport.com/wp-content/uploads/2017/07/Aquarius-Traits2.png?fit=1254%2C700&ssl=1" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Pisces'">
+          <img src="http://identity-mag.com/wp-content/uploads/2018/03/pisces.png" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Aries'">
+          <img src="https://blog.serenataflowers.com/pollennation/wp-content/uploads/2017/03/az_img_horoscope_aries.png" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Taurus'">
+          <img src="https://piedfeed.com/wp-content/uploads/2017/11/img_horoscope_taurus.jpg" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Gemini'">
+          <img src="https://data.whicdn.com/images/318665394/original.png?t=1535774286" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Cancer'">
+          <img src="https://www.diaridetarragona.com/__export/1525634706057/sites/diaridetarragona/img/2018/05/06/cancer.png" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Leo'">
+          <img src="https://www.astrologyzone.com/wp-content/themes/JointsWP-master/assets/images/horoscopes/horoscope-article-hero/az_img_horoscope_leo.png" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Virgo'">
+          <img src="https://image.shutterstock.com/image-vector/sign-zodiac-virgo-constellation-vector-260nw-1120385594.jpg" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Libra'">
+          <img src="https://www.astrologyzone.com/wp-content/themes/JointsWP-master/assets/images/horoscopes/horoscope-article-hero/az_img_horoscope_libra.png" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Scorpio'">
+          <img src="http://www.astrologyhub.com/wp-content/uploads/scorpio-810x810.png" style="width: 234px ; height: 100px">
+        </div>
+        <div *ngIf="item.value.constellation == 'Sagittarius'">
+          <img src="https://www.astrologyzone.com/wp-content/themes/JointsWP-master/assets/images/horoscopes/horoscope-article-hero/az_img_horoscope_sagittarius.png" style="width: 234px ; height: 100px">
+        </div>
+
+
+        <div class="pt-0 text-uppercase" style="padding: 10px">
+          <!--name&&git&&linkeidn-->
+<div class="row">
+  <div class="col-sm-6 ">
+    <h5 class="card-title">
+      <em>
+        {{item.value.nickname}}
+      </em>
+    </h5>
+
+  </div>
+
+
+  <div class="col-sm-3 mt-2">
+    <a href={{item.value.linkedin}}>
+      <i class="fab fa-linkedin" *ngIf="item.value.linkedin"></i>
+    </a>
+  </div>
+  <div class="col-sm-3 mt-2">
+    <a href={{item.value.git}}>
+      <i class="fab fa-github" *ngIf="item.value.git"></i>
+    </a>
+  </div>
+</div>
+
+
+
+<!--email-->
+            <p>{{item.value.email}}</p>
+
+
+          </div>
+        <!--</div>-->
+
+          <p class="card-text" style="padding: 10px">
+            <strong *ngIf="item.value.textinput.length <= 80">
+              {{item.value.textinput}}
+            </strong>
+            <strong *ngIf="item.value.textinput.length > 80">
+              {{item.value.textinput|slice:0:60}}
+              <p *ngIf="loadText===false"  (click)="loadMoreTextHandler()" style="color: aqua">read more</p>
+        <strong *ngIf="loadText===true">
+          {{item.value.textinput|slice:60:item.value.textinput.length}}
+        </strong>
+            </strong>
+          </p>
+
+
+    </div>
+  </div>
+
+</div>
+<a (click)="loadMoreHandler()" class="text-light text-center mb-20 center-block" style="margin-bottom: 25px;">
+  <em>
+    <u>
+      click me to load more......
+    </u>
+  </em>
+</a>

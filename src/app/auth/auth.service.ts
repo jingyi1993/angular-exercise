@@ -37,12 +37,18 @@ export class AuthService {
       // });
   }
 
-  isAuthenticated() {
-    // return this.token !== null;
-    if (this.token) {
-      return true;
-    } else {
-      return false;
-    }
+  getAllPosts () {
+    return firebase.database().ref('/users/');
+      // .once('value');
+      // .then((snapshot) => console.log(snapshot.val()));
   }
+
+  // isAuthenticated() {
+  //   // return this.token !== null;
+  //   if (this.token) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

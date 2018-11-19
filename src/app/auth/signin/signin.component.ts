@@ -37,8 +37,7 @@ export class SigninComponent implements OnInit {
          );
        const userId = firebase.auth().currentUser.uid;
        // get user's information from firebase database
-       firebase.database().ref('/users/' + userId).once('value').then((snaps
-       ghot) => {
+       firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
          // console.log(snapshot.val());
          const userEmail = (snapshot.val() && snapshot.val().email) || 'Anonymous';
          this.authService.messageSource = new BehaviorSubject(snapshot.val()).asObservable();
